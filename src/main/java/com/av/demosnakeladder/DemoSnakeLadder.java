@@ -75,6 +75,13 @@ public class DemoSnakeLadder {
 			System.out.println("Player is in " + player1 + " and got " + nextValue + " so next position is " + (player1 + nextValue));
 			
 			if((player1 + nextValue) <= 100){
+				
+				if((player1 + nextValue) == 100){
+					System.out.println("!!!Congratulations you won!!! ");
+					System.out.println("Bye, have a nice day");
+					break;
+				}
+				
 				//Now this is the current position of the player
 				player1 += nextValue;
 				
