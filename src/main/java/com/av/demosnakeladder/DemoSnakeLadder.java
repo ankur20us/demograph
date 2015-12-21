@@ -12,10 +12,14 @@ public class DemoSnakeLadder {
 	public static void main(String[] args) {
 		
 		Integer board[] = new Integer[101];
-		
+		/*
+		* This is the board and I started from 1, since it will make my work easier in further calls.
+		* No need to call -1 in every address manipulation
+		*/
 		for(int i=1; i<100; i++){
 			board[i] = new Integer(i);
 		}
+		
 		
 		List<GroupInfo> laddersInfo = new ArrayList<GroupInfo>();
 			laddersInfo.add(new GroupInfo(board[2], board[32]));
@@ -24,6 +28,9 @@ public class DemoSnakeLadder {
 			laddersInfo.add(new GroupInfo(board[34], board[44]));
 			laddersInfo.add(new GroupInfo(board[7], board[98]));
 		//Ladder Configuration
+		/*
+		* This is the info of ladders. This means from where to where ladder exists.
+		*/
 		DirectedGraph<Integer, DefaultEdge> ladders = new DefaultDirectedGraph<Integer, DefaultEdge>(DefaultEdge.class);
 		/*
 		 * Ladders are at 
@@ -48,6 +55,9 @@ public class DemoSnakeLadder {
 			snakesInfo.add(new GroupInfo(board[42], board[3]));
 		
 		//Snake Configuration
+		/*
+		* This is the info of snakes. This means from where to where snake exists.
+		*/
 		DirectedGraph<Integer, DefaultEdge> snakes = new DefaultDirectedGraph<Integer, DefaultEdge>(DefaultEdge.class);
 		/*
 		 * Snakes are at
@@ -64,11 +74,11 @@ public class DemoSnakeLadder {
 		}
 		
 		/*
-		 * These are the current positions of the player, I am considering 1 players
+		 * These are the current positions of the player, I am considering 1 player.
 		 */
 		int player1 = 1;
 		
-		//The game goes till he reaches 100
+		//The game goes till player reaches 100
 		while(player1  != 100){
 			//get the value of dice and 
 			int nextValue = getNextDiceValue();
